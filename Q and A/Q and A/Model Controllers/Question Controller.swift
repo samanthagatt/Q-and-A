@@ -10,7 +10,7 @@ import Foundation
 
 class QuestionController {
     
-    var questions: [Question]
+    private(set) var questions: [Question] = []
     
     func create(question: String, asker: String) {
         let createdQuestion = Question(question: question, asker: asker)
@@ -18,10 +18,14 @@ class QuestionController {
     }
     
     func update(question: Question, answer: String, answerer: String) {
-        // Might have to come back -- since Question is a struct, why didn't it warn me that question is a let constant and isn't mutable?
-        // Does it update the Question in the questions array?
-        question.answer = answer
-        question.answerer = answerer
+        
+        var thisQuestion = question
+        thisQuestion.answer = answer
+        thisQuestion.answerer = answerer
+        
+        guard let index = questions.index(of: question) else { return }
+        questions.remove(at: index)
+        questions.insert(thisQuestion, at: index)
     }
     
     func delete(question: Question) {
