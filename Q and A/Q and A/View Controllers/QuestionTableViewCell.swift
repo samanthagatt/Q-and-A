@@ -10,9 +10,21 @@ import UIKit
 
 class QuestionTableViewCell: UITableViewCell {
     
+    private func updateViews() {
+        guard let thisQuestion = question else { return }
+        questionLabel.text = thisQuestion.question
+        askerLabel.text = thisQuestion.asker
+        answerLabel.text = thisQuestion.answer
+    }
+    
+    var question: Question? {
+        didSet {
+            updateViews()
+        }
+    }
+    
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var askerLabel: UILabel!
     
     @IBOutlet weak var answerLabel: UILabel!
-    
 }
