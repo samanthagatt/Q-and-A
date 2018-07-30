@@ -31,7 +31,11 @@ class AnswerQuestionViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func submitAnswerButtonTapped(_ sender: Any) {
+        
+    }
+    
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var askerLabel: UILabel!
     @IBOutlet weak var answererTextField: UITextField!

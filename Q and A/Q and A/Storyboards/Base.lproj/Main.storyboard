@@ -155,6 +155,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oUV-85-OmM"/>
                     </view>
+                    <navigationItem key="navigationItem" id="IN5-ZX-QYz">
+                        <barButtonItem key="rightBarButtonItem" title="Submit Answer" id="I7a-eX-RGj">
+                            <connections>
+                                <action selector="submitAnswerButtonTapped:" destination="Wi9-jY-2VU" id="3yC-pD-LUJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="answerTextView" destination="Qtp-y4-vsI" id="bCY-fM-1cj"/>
                         <outlet property="answererTextField" destination="QyQ-kn-u3K" id="PNH-Gs-GbB"/>
@@ -201,7 +208,11 @@
                         <viewLayoutGuide key="safeArea" id="lzK-bz-rhd"/>
                     </view>
                     <navigationItem key="navigationItem" id="UGz-FQ-lty">
-                        <barButtonItem key="rightBarButtonItem" title="Submit Question" id="M4I-3M-rcf"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit Question" id="M4I-3M-rcf">
+                            <connections>
+                                <action selector="submitQuestionButtonTapped:" destination="mNw-oK-HbW" id="XEv-HY-phr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="askerTextField" destination="7wU-Jp-jLL" id="Zhm-bW-xBO"/>

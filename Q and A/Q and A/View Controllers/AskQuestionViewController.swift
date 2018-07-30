@@ -31,6 +31,21 @@ class AskQuestionViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func submitQuestionButtonTapped(_ sender: Any) {
+        guard let asker = askerTextField.text,
+            let question = questionTextView.text else {
+                return
+            }
+        
+        if asker != "" && question != "" {
+            questionController?.create(question: question, asker: asker)
+            
+            // Will only pop back if the text field and view are both filled in
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    var questionController: QuestionController?
     
     @IBOutlet weak var askerTextField: UITextField!    
     @IBOutlet weak var questionTextView: UITextView!
