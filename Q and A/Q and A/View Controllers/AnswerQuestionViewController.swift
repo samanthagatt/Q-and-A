@@ -13,28 +13,48 @@ class AnswerQuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateViews()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func updateViews() {
+        guard let thisQuestion = question else { return }
+        
+        questionLabel.text = thisQuestion.question
+        askerLabel.text = thisQuestion.asker
+        
+        guard let answer = thisQuestion.answer,
+            let answerer = thisQuestion.answerer else {
+                return
+        }
+        answerTextView.text = answer
+        answererTextField.text = answerer
+        
+/*
+        if let answer = thisQuestion.answer,
+            let answerer = thisQuestion.answerer {
+            answerTextView.text = answer
+            answererTextField.text = answerer
+        }
+ */
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     @IBAction func submitAnswerButtonTapped(_ sender: Any) {
+        guard let answer = answerTextView.text,
+            let answerer = answererTextField.text else {
+                return
+        }
         
+        if answer != "" && answerer != "" {
+            guard let thisQuestion = question else { return }
+            questionController?.update(question: thisQuestion, answer: answer, answerer: answerer)
+            
+            navigationController?.popViewController(animated: true)
+        }
     }
+    
+    var questionController: QuestionController?
+    var question: Question?
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var askerLabel: UILabel!
