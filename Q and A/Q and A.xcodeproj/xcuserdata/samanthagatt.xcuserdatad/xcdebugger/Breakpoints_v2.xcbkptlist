@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Q and A/View Controllers/AnswerQuestionViewController.swift"
-            timestampString = "554683994.799957"
+            timestampString = "554686542.2624739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "submitAnswerButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>

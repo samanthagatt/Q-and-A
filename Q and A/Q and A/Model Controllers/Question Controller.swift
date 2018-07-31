@@ -19,13 +19,15 @@ class QuestionController {
     
     func update(question: Question, answer: String, answerer: String) {
         
-        var thisQuestion = question
-        thisQuestion.answer = answer
-        thisQuestion.answerer = answerer
-        
         guard let index = questions.index(of: question) else { return }
+        
+        var scratch = question
+        scratch.answer = answer
+        scratch.answerer = answerer
+        
+        
         questions.remove(at: index)
-        questions.insert(thisQuestion, at: index)
+        questions.insert(scratch, at: index)
     }
     
     func delete(question: Question) {

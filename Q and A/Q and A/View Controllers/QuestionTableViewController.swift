@@ -58,6 +58,7 @@ class QuestionTableViewController: UITableViewController {
             
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             
+            destinationVC.questionController = questionController
             destinationVC.question = questionController.questions[indexPath.row]
         }
     }
